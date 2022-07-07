@@ -1,0 +1,31 @@
+CREATE TABLE users(
+id int not null AUTO_INCREMENT,
+email varchar(50),
+pass varchar(255), PRIMARY KEY (id));
+
+correct:
+CREATE TABLE passwords(
+website varchar(50),
+username varchar(50),
+pass varchar(255),
+id int,
+iv varchar(50),
+token int,
+foreign key(id) references users(id),
+PRIMARY KEY(token)
+);
+
+
+CREATE TABLE cards
+(cardname varchar(12),
+ holder varchar(25),
+ cardnumber varchar(16),
+ numberiv varchar(50),
+ expiry date,
+ cvv int,
+ cvviv varchar(50),
+ brand varchar(10),
+ id int,
+ token int,
+ FOREIGN KEY(id) REFERENCES users(id),
+ PRIMARY KEY(token));
